@@ -14,9 +14,9 @@ export default class Table {
 
       for (const prop in data[i]) {
         tr.dataset[prop] = data[i][prop];
-        if (tr.dataset[prop] === 'imdb') {
+        if (prop === 'imdb') {
           tds += `<td>imdb: ${data[i][prop].toFixed(2)}</td>`;
-        } else if (tr.dataset[prop] === 'year') {
+        } else if (prop === 'year') {
           tds += `<td>(${data[i][prop]})</td>`;
         } else {
           tds += `<td>${data[i][prop]}</td>`;
@@ -56,7 +56,7 @@ export default class Table {
       }
     }
 
-    let trsHTML = '<tr><th>id</th><th>title</th><th>year</th><th>imdb</th></tr>';
+    let trsHTML = '<tr><th>id</th><th>title</th><th>imdb</th><th>year</th></tr>';
     for (let i = 0; i < trs.length; i++) {
       trsHTML += trs[i].outerHTML;
     }
